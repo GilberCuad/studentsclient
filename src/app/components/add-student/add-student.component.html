@@ -1,0 +1,22 @@
+<div style="width: 400px; margin: auto;">
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="title">Nombre</label>
+        <input type="text" class="form-control" id="title" required [(ngModel)]="Student.name" name="title" />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Apellido</label>
+        <input class="form-control" id="description" required [(ngModel)]="Student.apellido" apellido="description" />
+      </div>
+
+      <button (click)="saveStudent()" class="btn btn-success">Enviar</button>
+    </div>
+
+    <div *ngIf="submitted">
+      <h4>Tu registro ha sido guardado con exito!</h4>
+      <button class="btn btn-success" (click)="newStudent()">Add</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<p>DETALLES DE ESTUDIANTES!</p>
+<div style="width: 400px; margin: auto;">
+  <div *ngIf="currentStudent" class="edit-form">
+    <h4>Student</h4>
+    <form>
+      <div class="form-group">
+        <label for="title">Nombre</label>
+        <input type="text" class="form-control" id="title" [(ngModel)]="currentStudent.title" name="title" />
+      </div>
+      <div class="form-group">
+        <label for="description">Apellido</label>
+        <input type="text" class="form-control" id="description" [(ngModel)]="currentStudent.description"
+          name="description" />
+      </div>
+
+      <div class="form-group">
+        <label><strong>Asistio:</strong></label>
+        {{ currentStudent.attend ? "attend" : "Pending" }}
+      </div>
+    </form>
+
+    <button class="badge badge-primary mr-2" *ngIf="currentStudent.attend" (click)="updatePublished(false)">
+      UnPublish
+    </button>
+    <button *ngIf="!currentStudent.attend" class="badge badge-primary mr-2" (click)="updatePublished(true)">
+      Publish
+    </button>
+
+    <button class="badge badge-danger mr-2" (click)="deleteStudent()">
+      Delete
+    </button>
+
+    <button type="submit" class="badge badge-success" (click)="updateStudent()">
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!currentStudent">
+    <br />
+    <p>Cannot access this Student...</p>
+  </div>
+</div>
