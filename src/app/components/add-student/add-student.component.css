@@ -1,0 +1,42 @@
+.Contenedor_students_details{
+  text-align: center;
+  border-style: solid;
+  border-width: 4px;
+  border-radius: 10px;
+  height: 220px;
+  margin-left: 500px;
+  margin-right: 500px;
+  margin-top: 200px;
+  background-color: #1976d2;
+  color: rgb(0, 0, 0);
+  margin-top: auto;
+}
+#fomu1{
+  border: 2px solid rgb(3, 2, 2);
+  border-radius: 5px;
+  background-color: #3CBC8D;
+  color: white;
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+}
+#boton1{
+  margin: 5px;
+  margin-top: 9px;
+  background-color: #4CAF50; /* Green */
+  border: 2px solid rgb(3, 2, 2);
+  color: rgb(0, 0, 0);
+  padding: 10px 30px;
+  border-radius: 9px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  box-shadow: 0 10px 20px 0 rgba(0,0,0,0.2), 0 10px 30px 0 rgba(0,0,0,0.19);
+}
+
+#boton1:hover{
+  background-color: #4CAF50; /* Green */
+  color: white;
+  transition-duration: 0.4s;
+}

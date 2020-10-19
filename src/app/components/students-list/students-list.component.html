@@ -1,64 +1,72 @@
-<p>LISTA DE ESTUDIANTES!</p>
-<div class="list row">
-  <div class="col-md-8">
-    <div class="input-group mb-3">
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Search by title"
-        [(ngModel)]="name"
-      />
-      <div class="input-group-append">
-        <button
-          class="btn btn-outline-secondary"
-          type="button"
-          (click)="searchTitle()"
-        >
-          Buscar
-        </button>
+<div class="Contenedor_students_details">
+  <b>¡LISTA DE ESTUDIANTES!</b> <br> <br>
+  <b>Buscar un estudiante</b> <br>
+  <div class="submit-form">
+    <div class="col-md-8">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" id="fomu1" placeholder="Ingresa el nombre" [(ngModel)]="name" />
+        <div class="input-group-append">
+          <button id="boton1" class="btn btn-outline-secondary" type="button" (click)="searchTitle()">
+            <b>Consultar</b>
+
+          </button>
+        </div>
       </div>
     </div>
+    <div *ngIf="submitted">
+      <h3>El dato ingresado no fue encontrado!</h3>
+    </div>
   </div>
+
   <div class="col-md-6">
     <h4>Lista Estudiantes</h4>
-    <ul class="list-group">
-      <li
-        class="list-group-item"
-        *ngFor="let student of students; let i = index"
-        [class.active]="i == currentIndex"
-        (click)="setActiveStudent(student, i)"
-      >
+    <ul class="lista">
+      <li class="list-group-item" *ngFor="let student of students; let i = index" [class.active]="i == currentIndex"
+        (click)="setActiveStudent(student, i)">
         {{ student.name }}
       </li>
     </ul>
-
-    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllStudents()">
-      Eliminar todo
+    <button id="boton1" class="m-3 btn btn-sm btn-danger" (click)="removeAllStudents(students)">
+      <b>Eliminar todo</b>
     </button>
   </div>
+
   <div class="col-md-6">
     <div *ngIf="currentStudent">
-      <h4>Estudiantes</h4>
-      <div>
-        <label><strong>Nombre:</strong></label> {{ currentStudent.name }}
-      </div>
-      <div>
-        <label><strong>Apellido:</strong></label>
-        {{ currentStudent.apellido }}
-      </div>
-      <div>
-        <label><strong>Estado:</strong></label>
-        {{ currentStudent.attend ? "Published" : "Pending" }}
-      </div>
+      <h4>Estudiante</h4>
+      <table>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Estado</th>
+        </tr>
+        <tr>
+          <td>
+            <div>
+              {{ currentStudent.name }}
+            </div>
+          </td>
+          <td>
+            <div>
+              {{ currentStudent.apellido }}
+            </div>
+          </td>
+          <td>
+            <div>
+              {{ currentStudent.attend ? "Published" : "False" }}
+            </div>
+          </td>
+        </tr>
+      </table>
 
-      <a class="badge badge-warning" routerLink="/students/{{ currentStudent.id }}">
-        Editar
-      </a>
+      <button id="boton1" class="badge badge-warning" routerLink="/students/{{ currentStudent.id }}">
+        <b>Editar</b></button>
+
     </div>
 
     <div *ngIf="!currentStudent">
       <br />
-      <p>Por favor, click en un estudiante</p>
+      <b>Por favor, click en un estudiante</b>
     </div>
   </div>
 </div>

@@ -32,17 +32,17 @@ export class StudentDetailsComponent implements OnInit {
         });
   }
 
-  updatePublished(status): void {
+  updatePublished(attend): void {
     const data = {
       name: this.currentStudent.name,
       apellido: this.currentStudent.apellido,
-      published: status
+      attend: true
     };
 
     this.studentService.update(this.currentStudent.id, data)
       .subscribe(
         response => {
-          this.currentStudent.published = status;
+          this.currentStudent.attend = true;
           console.log(response);
         },
         error => {
@@ -55,7 +55,7 @@ export class StudentDetailsComponent implements OnInit {
       .subscribe(
         response => {
           console.log(response);
-          this.message = 'The student was updated successfully!';
+          this.message = 'El estudiante fue actualizado con exito!';
         },
         error => {
           console.log(error);

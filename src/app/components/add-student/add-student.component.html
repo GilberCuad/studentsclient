@@ -1,22 +1,23 @@
-<div style="width: 400px; margin: auto;">
+<div class="Contenedor_students_details">
+  <b>¡AÑADIR ESTUDIANTE!</b>
   <div class="submit-form">
     <div *ngIf="!submitted">
       <div class="form-group">
-        <label for="title">Nombre</label>
-        <input type="text" class="form-control" id="title" required [(ngModel)]="Student.name" name="title" />
+        <label for="title"><b>Nombre:</b></label>
+        <input type="text" class="form-control" id="fomu1" required [(ngModel)]="Student.name" name="title" />
       </div>
 
       <div class="form-group">
-        <label for="description">Apellido</label>
-        <input class="form-control" id="description" required [(ngModel)]="Student.apellido" apellido="description" />
+        <label for="description"><b>Apellido:</b></label>
+        <input class="form-control" id="fomu1" required [(ngModel)]="Student.apellido" apellido="description" />
       </div>
 
-      <button (click)="saveStudent()" class="btn btn-success">Enviar</button>
+      <button id="boton1" (click)="saveStudent()" class="btn btn-success"><b>Guardar</b></button>
     </div>
 
     <div *ngIf="submitted">
-      <h4>Tu registro ha sido guardado con exito!</h4>
-      <button class="btn btn-success" (click)="newStudent()">Add</button>
+      <h3>Tu registro ha sido guardado con exito!</h3>
+      <button id="boton1" class="btn btn-success" (click)="newStudent()"><b>Añadir</b></button>
     </div>
   </div>
 </div>

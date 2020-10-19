@@ -6,15 +6,24 @@ import { StudentService } from 'src/app/services/student.service';
   templateUrl: './students-list.component.html',
   styleUrls: ['./students-list.component.css']
 })
+/*
+@Component({
+  selector: 'app-pagination-control',
+  templateUrl: './students-list.component.html',
+  styleUrls: ['./students-list.component.css']
+})
+*/
 export class StudentsListComponent implements OnInit {
   students: any;
   currentStudent = null;
+  message = '';
   currentIndex = -1;
   name = '';
-
+  submitted = false;
   constructor(private studentService: StudentService) { }
 
   ngOnInit(): void {
+    this.message = '';
     this.retrieveStudents();
   }
   retrieveStudents(): void {
@@ -38,8 +47,8 @@ export class StudentsListComponent implements OnInit {
     this.currentIndex = index;
   }
 
-  removeAllStudents(): void {
-    this.studentService.deleteAll()
+  removeAllStudents(id): void {
+    this.studentService.deleteAll(id)
       .subscribe(
         response => {
           console.log(response);
@@ -54,7 +63,12 @@ export class StudentsListComponent implements OnInit {
       .subscribe(
         data => {
           this.students = data;
-          console.log(data);
+          if (data == null) {
+            this.submitted = true;
+          } else {
+            this.submitted = false;
+          }
+
         },
         error => {
           console.log(error);
